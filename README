@@ -1,5 +1,6 @@
 EVT Technology Challenge by Brian Loh
 
+
 How to run the solution:
 1. Install Docker from https://www.docker.com/products/docker-desktop/
 2. Run the command 'git clone https://github.com/bl0h/evtChallenge.git' in the desired directory that you want the files to download to
@@ -7,9 +8,21 @@ How to run the solution:
 4. Run the command 'docker compose up --build' to build the conatiner
 5. To access the web page, type in https://localhost/ to your browser
 
-Design choices:
-Nginx: I chose Nginx because it is known for its performance and efficiency because it consumes little resources compared to other options.
-Docker: 
 
-Generating the self signed certificate
+Webserver Design Choice:
+I used Nginx as the web server for this project based on several factors. Nginx is known for its exceptional performance and efficiency, making it an ideal choice for our static HTML page. It has minimal resource consumption which ensures that our system operates smoothly and efficiently.
+
+While Apache was a strong contender due to its flexibility and extensive module ecosystem, we prioritized performance and resource efficiency for this project.
+
+Tomcat is primarily used to run Java-based applications. Since our project does not rely on Java, we opted for a more general-purpose solution. Similarly, IIS is well-suited for Windows environments, but as our infrastructure is not Windows-centric, it did not align with our needs.
+
+Application Management Design Choice:
+I chose to use Docker because containerization is a modern and effective solution that allows for applications to be run on any system.  It provides isolation, so other applications and dependencies do not affect eachother.  I have only seen and used Docker before this project, so I also wanted to use this opportunity to create my own Dockerfile and learn more about Docker.
+
+While Docker was my choice for this project, it's important to note that configuration management is another valid solution that helps maintain the desired state of the infrastructure through code
+
+Security:
+For this project, I generated my own self-signed certificate.  I do understand that self-signed certificates are not the most secure since they are not verified by the Certificate Authority.  In this case, it is ok since we are just using it for testing and development.
+
+Command that generates the self signed certificate:
 openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
