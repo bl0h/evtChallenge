@@ -1,0 +1,15 @@
+EVT Technology Challenge by Brian Loh
+
+How to run the solution:
+1. Install Docker from https://www.docker.com/products/docker-desktop/
+2. Run the command 'git clone https://github.com/bl0h/evtChallenge.git' in the desired directory that you want the files to download to
+3. Now that you have the files locally, change your directory to the evtChallenge/app directory
+4. Run the command 'docker compose up --build' to build the conatiner
+5. To access the web page, type in https://localhost/ to your browser
+
+Design choices:
+Nginx: I chose Nginx because it is known for its performance and efficiency because it consumes little resources compared to other options.
+Docker: 
+
+Generating the self signed certificate
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
